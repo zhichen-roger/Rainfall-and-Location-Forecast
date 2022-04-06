@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <title>郑州降雨积水路段</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <style>
+    body,
+    html,
+    #container {
+        overflow: hidden;
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        font-family: "微软雅黑";
+    }
+    </style>
+    <script src="//api.map.baidu.com/api?type=webgl&v=1.0&ak=cGL8Qouyper9SwxGL4fg0uhZYbiPlxMF"></script>
+</head>
+<body>
+    <div id="container"></div>
+</body>
+</html>
+<script>
+var map = new BMapGL.Map('container');
+map.centerAndZoom(new BMapGL.Point(113.631419,34.753439), 12);
+map.enableScrollWheelZoom(true);
+// 创建点标记
+var point1 = new BMapGL.Point(113.539225,34.600379);
+var point2 = new BMapGL.Point(113.642706,34.720525);
+var point3 = new BMapGL.Point(113.693071,34.601209);
+var point4 = new BMapGL.Point(113.65976,34.756405);
+var point5 = new BMapGL.Point(113.631419,34.753439);
+var point6 = new BMapGL.Point(113.734436,34.724458);
+var point7 = new BMapGL.Point(113.711848,34.814838);
+
+// //#region 创建点，并且展开大小
+// map.centerAndZoom(point1, 12);
+// map.centerAndZoom(point2, 12);
+// map.centerAndZoom(point3, 12);
+// map.centerAndZoom(point4, 12);
+// map.centerAndZoom(point5, 12);
+// map.centerAndZoom(point6, 12);
+// map.centerAndZoom(point7, 12);
+
+var marker1 = new BMapGL.Marker(point1);
+var marker2 = new BMapGL.Marker(point2);
+var marker3 = new BMapGL.Marker(point3);
+var marker4 = new BMapGL.Marker(point4);
+var marker5 = new BMapGL.Marker(point5);
+var marker6 = new BMapGL.Marker(point6);
+var marker7 = new BMapGL.Marker(point7);
+// 在地图上添加点标记
+map.addOverlay(marker1);
+map.addOverlay(marker2);
+map.addOverlay(marker3);
+map.addOverlay(marker4);
+map.addOverlay(marker5);
+map.addOverlay(marker6);
+map.addOverlay(marker7);
+//创建标记
+var opts1 = {
+	    width : 200,     // 信息窗口宽度
+	    height: 100,     // 信息窗口高度
+	    title : "郑州市郑密路南" , // 信息窗口标题
+	}
+var opts2 = {
+	    width : 200,     // 信息窗口宽度
+	    height: 100,     // 信息窗口高度
+	    title : "郑州市航海路淮南街" , // 信息窗口标题
+	}
+var opts3 = {
+	    width : 200,     // 信息窗口宽度
+	    height: 100,     // 信息窗口高度
+	    title : "郑州市京广路淮河路" , // 信息窗口标题
+	}
+var opts4 = {
+	    width : 200,     // 信息窗口宽度
+	    height: 100,     // 信息窗口高度
+	    title : "郑州市陇海路京广路" , // 信息窗口标题
+	}
+var opts5 = {
+	    width : 200,     // 信息窗口宽度
+	    height: 100,     // 信息窗口高度
+	    title : "郑州市京广南路隧道入口路" , // 信息窗口标题
+	}
+var opts6 = {
+	    width : 200,     // 信息窗口宽度
+	    height: 100,     // 信息窗口高度
+	    title : "郑州市启明路机场高速涵洞" , // 信息窗口标题
+	}
+var opts7 = {
+	    width : 200,     // 信息窗口宽度
+	    height: 100,     // 信息窗口高度
+	    title : "郑州市北三环意惠街" , // 信息窗口标题
+	}
+var infoWindow1 = new BMapGL.InfoWindow("地址:郑州市郑密路南", opts1);  // 创建信息窗口对象
+	marker1.addEventListener("click", function(){
+		map.openInfoWindow(infoWindow1, point1); //开启信息窗口
+	});
+var infoWindow2 = new BMapGL.InfoWindow("地址:郑州市航海路淮南街", opts2);  // 创建信息窗口对象
+	marker2.addEventListener("click", function(){
+		map.openInfoWindow(infoWindow2, point2); //开启信息窗口
+	});
+var infoWindow3 = new BMapGL.InfoWindow("地址:郑州市京广路淮河路", opts3);  // 创建信息窗口对象
+	marker3.addEventListener("click", function(){
+		map.openInfoWindow(infoWindow3, point3); //开启信息窗口
+	});
+var infoWindow4 = new BMapGL.InfoWindow("地址:郑州市陇海路京广路", opts4);  // 创建信息窗口对象
+	marker4.addEventListener("click", function(){
+		map.openInfoWindow(infoWindow4, point4); //开启信息窗口
+	});
+var infoWindow5 = new BMapGL.InfoWindow("地址:郑州市京广南路隧道入口路", opts5);  // 创建信息窗口对象
+	marker5.addEventListener("click", function(){
+		map.openInfoWindow(infoWindow5, point5); //开启信息窗口
+	});
+var infoWindow6 = new BMapGL.InfoWindow("地址:郑州市启明路机场高速涵洞", opts6);  // 创建信息窗口对象
+	marker6.addEventListener("click", function(){
+		map.openInfoWindow(infoWindow6, point6); //开启信息窗口
+	});
+var infoWindow7 = new BMapGL.InfoWindow("地址:郑州市北三环意惠街", opts7);  // 创建信息窗口对象
+	marker7.addEventListener("click", function(){
+		map.openInfoWindow(infoWindow7, point7); //开启信息窗口
+	});
+
+var fk1 = {
+	  position : point1,    // 指定文本标注所在的地理位置
+	  offset   : new BMapGL.Size(30, -30)    //设置文本偏移量
+	}
+var fk2 = {
+	  position : point2,    // 指定文本标注所在的地理位置
+	  offset   : new BMapGL.Size(30, -30)    //设置文本偏移量
+	}
+var fk3 = {
+	  position : point3,    // 指定文本标注所在的地理位置
+	  offset   : new BMapGL.Size(30, -30)    //设置文本偏移量
+	}
+var fk4 = {
+	  position : point4,    // 指定文本标注所在的地理位置
+	  offset   : new BMapGL.Size(30, -30)    //设置文本偏移量
+	}
+var fk5 = {
+	  position : point5,    // 指定文本标注所在的地理位置
+	  offset   : new BMapGL.Size(30, -30)    //设置文本偏移量
+	}
+var fk6 = {
+	  position : point6,    // 指定文本标注所在的地理位置
+	  offset   : new BMapGL.Size(30, -30)    //设置文本偏移量
+	}
+var fk7 = {
+	  position : point7,    // 指定文本标注所在的地理位置
+	  offset   : new BMapGL.Size(30, -30)    //设置文本偏移量
+	}
+var label1 = new BMapGL.Label("地址:郑密路南", fk1);
+var label2 = new BMapGL.Label("地址:航海路淮南街", fk2);
+var label3 = new BMapGL.Label("地址:京广路淮河路", fk3);
+var label4 = new BMapGL.Label("地址:陇海路京广路", fk4);
+var label5 = new BMapGL.Label("地址:京广南路隧道入口路", fk5);
+var label6 = new BMapGL.Label("地址:启明路机场高速涵洞", fk6);
+var label7 = new BMapGL.Label("地址:北三环意惠街", fk7);
+label1.setStyle({
+		color : 'red',
+		fontSize : '12px',
+		height : '20px',
+		lineHeight : '20px',
+		fontFamily: '微软雅黑'
+	});
+label2.setStyle({
+		color : 'red',
+		fontSize : '12px',
+		height : '20px',
+		lineHeight : '20px',
+		fontFamily: '微软雅黑'
+	});
+label3.setStyle({
+		color : 'red',
+		fontSize : '12px',
+		height : '20px',
+		lineHeight : '20px',
+		fontFamily: '微软雅黑'
+	});
+label4.setStyle({
+		color : 'red',
+		fontSize : '12px',
+		height : '20px',
+		lineHeight : '20px',
+		fontFamily: '微软雅黑'
+	});
+label5.setStyle({
+		color : 'red',
+		fontSize : '12px',
+		height : '20px',
+		lineHeight : '20px',
+		fontFamily: '微软雅黑'
+	});
+label6.setStyle({
+		color : 'red',
+		fontSize : '12px',
+		height : '20px',
+		lineHeight : '20px',
+		fontFamily: '微软雅黑'
+	});
+label7.setStyle({
+		color : 'red',
+		fontSize : '12px',
+		height : '20px',
+		lineHeight : '20px',
+		fontFamily: '微软雅黑'
+	});
+map.addOverlay(label1);
+map.addOverlay(label2);
+map.addOverlay(label3);
+map.addOverlay(label4);
+map.addOverlay(label5);
+map.addOverlay(label6);
+map.addOverlay(label7);
+</script>

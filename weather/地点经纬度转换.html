@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="initial-scale=1.0,user-scalable=no" />
+<title>百度地图API-批量地址解译</title>
+<style type="text/css">
+body, html {
+	width: 100%;
+	height: 100%;
+	margin: 0;
+	font-family: "微软雅黑";
+}
+
+#l-map {
+	height: 400px;
+	width: 100%;
+}
+
+#r-result {
+	width: 100%;
+	font-size: 14px;
+	line-height: 20px;
+}
+</style>
+<script type="text/javascript" src="http://api.map.baidu.com/api?v=1.4"></script>
+</head>
+<body>
+	<div id="l-map"></div>
+	<div id="r-result">
+		<input type="button" value="批量地址解析" onclick="bdGEO()" />
+		<div id="result"></div>
+	</div>
+
+	<script type="text/javascript">
+		// 百度地图API功能
+		var map = new BMap.Map("l-map");
+		map.centerAndZoom(new BMap.Point(113.631419,34.753439), 10);
+		//第一个参数可以是根据之前创建好的一个点为中心，创建出地图，也可以根据城市地区的中文名称创建地图。
+		//第二个参数是地图缩放级别，最大为19，最小为0。
+
+		map.enableScrollWheelZoom(true);
+		var index = 0;
+		var myGeo = new BMap.Geocoder();
+		//在这里输入想要获取的地名坐标
+		var adds = ['郑州市郑密路南',
+			'郑州市航海路淮南街',
+			'郑州市京广路淮河路',
+			'郑州市陇海路京广路',
+			'郑州市京广南路隧道入口路',
+			'郑州市启明路机场高速涵洞',
+			'郑州市北三环意惠街'
+];
+
+		function bdGEO() {
+			var add = adds[index];
+			geocodeSearch(add);
+			index++;
+		}
+		function geocodeSearch(add) {
+			if (index < adds.length) {
+				setTimeout(window.bdGEO, 400);
+			}
+			myGeo.getPoint(
+							add,
+							function(point) {
+								if (point) {
+									document.getElementById("result").innerHTML += index
+											+ " "
+											+ add
+											+ ":"
+											+ point.lng
+											+ ","
+											+ point.lat + "</br>";
+									var address = new BMap.Point(point.lng,
+											point.lat);
+									addMarker(address, new BMap.Label(index
+											+ ":" + add, {
+										offset : newBMap.Size(20, -10)
+									}));
+								}
+							}, "中国");
+		}
+
+		// 编写自定义函数,创建标注
+		function addMarker(point, label) {
+			var marker = new BMap.Marker(point);
+			map.addOverlay(marker);
+			marker.setLabel(label);
+		}
+	</script>
+
+</body>
+</html>
